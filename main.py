@@ -26,14 +26,23 @@ def main():
     abort_game = False
     while abort_game != True:
         screen.fill(BACKGROUND)
+
         for obj in drawable:
             obj.draw(screen)
+
         pygame.display.flip()
+
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 return
         
         updateable.update(dt)
+
+        for asteroid in asteroids:
+            if asteroid.checkCollision(player):
+                print("Game Over!")
+                exit()
+
         clock.tick(60)
         dt = clock.get_time() / 1000
 
