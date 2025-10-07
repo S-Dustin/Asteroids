@@ -3,7 +3,7 @@ import pygame
 # Base class for game objects
 class CircleShape(pygame.sprite.Sprite):
     def __init__(self, x, y, radius):
-        # we will be using this later
+        # Containers to store groups of game objects
         if hasattr(self, "containers"):
             super().__init__(self.containers)
         else:
@@ -21,6 +21,7 @@ class CircleShape(pygame.sprite.Sprite):
         # sub-classes must override
         pass
 
+    # Returns collison as True if distance is less than each object's combined radius    
     def checkCollision(self, ship):
         distance = pygame.math.Vector2.distance_to(self.position, ship.position)
         return distance < self.radius + ship.radius

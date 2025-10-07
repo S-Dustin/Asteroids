@@ -1,7 +1,7 @@
-[project]
+[Asteroids]
 name = "meteorite"
 version = "0.1.0"
-description = "Add your description here"
+description = "Recreation of Asteroids game"
 readme = "README.md"
 requires-python = ">=3.8"
 dependencies = [
